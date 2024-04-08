@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery - Example 1</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        // core js
+        // window.addEventListener("load", function(){
+        //     alert("DOM loaded");
+        //     alert(document.getElementById('tm').innerHTML);
+        // });
+        // with Jquery
+        // function cool(){
+        //     alert($('#tm').html());
+        // }
+        // $(cool);
+            // with anonymous function
+        // $(function(){
+        //     alert($('#tm').html());
+        // })
+            // with lembda function or Arrow function.
+        $(()=>{
+            alert($('#tm').html());
+        });
+    </script>
+</head>
+<body>
+    <h1>Example 1</h1>
+    <span id="tm">Thinking Machine</span>
+</body>
+</html>

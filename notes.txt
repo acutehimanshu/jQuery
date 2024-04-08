@@ -1,0 +1,32 @@
+Backend: NodeJs
+Framework: ExpressJs
+
+-----------------------
+-> Install node/npm
+
+How to install express? 
+-> npm install express
+
+Default port as per socity is 3000 
+
+DOM - Document Object Model:
+whenver you load the page, browser put all the componenets in the data structure
+that ds is called DOM. 
+
+when dom is ready?
+When all the data on the browser is loaded (Read complete html code)
+--
+$(function(){
+
+});
+
+$ is internally a pointer 
+that is pointing toward a function type object 
+we will pass to address of any function 
+that will execute when dom will load. 
+--
+
+
+-------------------------
+Index
+Lecture 1: Basic

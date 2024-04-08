@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Examples</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        // with Jquery
+        function JustDoIt(){
+            alert($('#whatever').html());
+        }
+        // without Jquery
+        function JustDoItWithJS(){
+            var k = document.getElementById('whatever');
+            alert(k.innerHTML);
+        }
+    </script>
+</head>
+<body>
+    <h3>Thinking Machines</h3>
+    <ul>
+        <li><a href="learn1.html"> Example 1 </a> </li>
+        <li><a href="learn2.html"> Example 2 </a> </li>
+    </ul>
+    
+</body>
+</html>
