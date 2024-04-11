@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Example 2</title>
+    <script src="jquery/jquery-3.6.0.js" ></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .xyz{
+            color:white;
+            background-color: orange;
+        }
+    </style>
+    <script>
+        $(()=>{
+            // $('tr:even').addClass('xyz');
+            $('tbody > tr:even').addClass('xyz');
+        });
+
+        function doSomething(){
+            // alert($('tr:nth-child(1)').html());
+            alert($('tr:eq(0)').html());
+            alert($('tbody>tr:eq(0)').html());
+        }
+    </script>
+</head>
+<body>
+    <h1>Example 5</h1>
+    <button onclick="doSomething()" type="button">Click me</button>
+    <table> 
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>type</th>
+                <th>Company</th>
+                <th>package</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>Full-time</td>
+                <td>ABC Corp</td>
+                <td>1,000,000 Per Annum</td>
+            </tr>
+            <tr>
+                <td>Jane Smith</td>
+                <td>Part-time</td>
+                <td>XYZ Inc</td>
+                <td>5,000,000 Per Annum</td>
+            </tr>
+            <tr>
+                <td>Michael Johnson</td>
+                <td>Full-time</td>
+                <td>DEF Industries</td>
+                <td>90,000 Per Month</td>
+            </tr>
+            <tr>
+                <td>Emily Brown</td>
+                <td>Intern</td>
+                <td>GHI Ltd</td>
+                <td>30,000 Per Month</td>
+            </tr>
+            <tr>
+                <td>Chris Evans</td>
+                <td>Contractor</td>
+                <td>JKL Corp</td>
+                <td>800,000 Per Annum</td>
+            </tr>
+            <tr>
+                <td>Sarah Lee</td>
+                <td>Full-time</td>
+                <td>MNO Enterprises</td>
+                <td>1,100,000 Per Annum</td>
+            </tr>
+            <tr>
+                <td>Alexander Wang</td>
+                <td>Part-time</td>
+                <td>PQR Solutions</td>
+                <td>60,000 Per Month</td>
+            </tr>
+            <tr>
+                <td>Maria Garcia</td>
+                <td>Full-time</td>
+                <td>STU Corporation</td>
+                <td>950,000 Per Annum</td>
+            </tr>
+            <tr>
+                <td>David Kim</td>
+                <td>Part-time</td>
+                <td>VWX Limited</td>
+                <td>55,000 Per Month</td>
+            </tr>
+            <tr>
+                <td>Olivia Martinez</td>
+                <td>Full-time</td>
+                <td>YZ Corporation</td>
+                <td>850,000 Per Annum</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

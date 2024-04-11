@@ -26,11 +26,27 @@ we will pass to address of any function
 that will execute when dom will load. 
 --
 
-
-
+selectores
+> means a > b -> b which is inside a will be selected
+$('tbody > tr:even'): select even tr of tbody like 0 2 4 6
+$('tr:nth-child(1)')  1st numenber tr will be selected // starts with 1, on 0th child its undesfined.
+$('tr:eq(0)')  start with 0 (index based data selection)
+$('td:contains(MAQ)) // case sensative // it means element that contain MAQ whose TR will be selected
+$('*') selects everythings
+$('h1:first') 1st h1 selected
+$('h1:last')
+$("[type]") - all elements tthat contains attribute type
+$("[type='institute']") element contains attribute type with value institute
+$("[type!='institute']") element Do not contains attribute type with value institute
+$("p[type]") all element P which contains attribute TYPE will be selected.
+$(":input") applied to all input (include buttons as well)
+$(":button") application for only buttons 
+:input, :button, :enabled, :disabled, :checked, :selected
+$("p.good") that paragraph which class contains good will be selected
 Methods
 addClass
 removeClass 
 -------------------------
 Index
 Lecture 1: Basic
+Lecture 2: Selectors 

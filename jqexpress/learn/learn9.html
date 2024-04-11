@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Example 9</title>
+    <script src="jquery/jquery-3.6.0.js" ></script>
+    <style>
+        .xyz{
+            color:red;
+        }
+        .btn{
+            color:green;
+        }
+    </style>
+    <script>
+        function doSomething(){
+           $(":input").addClass('xyz');
+           
+        }
+        function doSomethingButton(){
+            $(":button").addClass('btn');
+        }
+    </script>
+</head>
+<body>
+    <h1>Example 9</h1>
+    <button onclick="doSomething()" type="button">Click me</button>
+    <button onclick="doSomethingButton()" type="button">ChangeButton</button>
+    <!-- Button is also inpt element so applicable on button as well -->
+    <form>
+        Name <input type="text"><br>
+        City <input type="text"><br>
+    </form>
+
+</body>
+</html>

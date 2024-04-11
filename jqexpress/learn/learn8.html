@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Example 8</title>
+    <script src="jquery/jquery-3.6.0.js" ></script>
+    <style>
+        
+    </style>
+    <script>
+        function doSomething(){
+           alert( $("[type]").html());
+           alert( $("[type='institute']").html());
+           alert( $("[type!='institute']").html());
+           alert( $("p[type]").html());
+        }
+    </script>
+</head>
+<body>
+    <h1>Example 8</h1>
+    <button onclick="doSomething()" type="button">Click me</button>
+
+    <p type="institute">Thinking machine</p>
+    <div slogan="first"> we teach</div>
+    <span slogan="second">Think Big</span>
+    <div entity="city">Ujjain</div>
+</body>
+</html>
