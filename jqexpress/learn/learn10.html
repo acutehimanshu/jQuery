@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Example 10</title>
+    <script src="jquery/jquery-3.6.0.js" ></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .xyz{
+            color:white;
+            background-color: orange;
+        }
+    </style>
+    <script>
+        function doSomething(){
+            // $('#placementView > tbody > tr:nth-child(odd)').addClass('xyz');
+            /* $('#placementView').find("tbody>tr").each(function(){
+                alert($(this).html());
+            }) */
+
+             /* $('#placementView').find("tbody>tr").each(function(){
+                alert($(this).find("td:eq(3)").html());
+            }) */
+
+            /* $('#placementView').find("tbody>tr").each(function(){
+                alert($(this).find("td:eq(3)").text());
+            }) */
+
+            /* $('#placementView').find("tbody>tr").each(function(){
+                if($(this).find("td:eq(3)").text().toLowerCase().includes("per month")){
+                    $(this).addClass('xyz');
+                }
+            }) */
+            /*
+            $('#placementView').find("tbody>tr").each(function(){
+                if($(this).find("td:eq(3)").text().toLowerCase() == "55,000 per month"){
+                    $(this).addClass('xyz');
+                }
+            }) */
+
+            /* $('#placementView').find("tbody>tr").each(function(){
+                if($(this).find("td:eq(3)").text().toLowerCase().includes("per month")){
+                    $(this).addClass('xyz');
+                    $(this).toggle();
+                }
+            }) */
+
+        }
+
+        $(()=>{
+            $('#searchBox').on('input', function(){
+                var searchWhat = $(this).val().toLowerCase();
+                if(searchWhat.length < 3){
+                    $('#placementView > tbody > tr').show();    
+                    return;
+                } 
+                $('#placementView > tbody > tr').each(function(){
+                    var cellContent = $(this).find('td:eq(2)').text().toLowerCase();
+                    if(cellContent.includes(searchWhat)){
+                        $(this).show();
+                    }else{
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Example 10</h1>
+    <button onclick="doSomething()" type="button">Click me</button>
+    <input type="text" id="searchBox">
+    <table id="placementView"> 
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>type</th>
+                <th>Company</th>
+                <th>package</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>Full-time</td>
+                <td>ABC Corp</td>
+                <td><b>1,000,000 Per Annum</b></td>
+            </tr>
+            <tr>
+                <td>Jane Smith</td>
+                <td>Part-time</td>
+                <td>XYZ Inc</td>
+                <td><b>5,000,000 Per Annum</b></td>
+            </tr>
+            <tr>
+                <td>Michael Johnson</td>
+                <td>Full-time</td>
+                <td>DEF Industries</td>
+                <td><b>90,000 Per Month</b></td>
+            </tr>
+            <tr>
+                <td>Emily Brown</td>
+                <td>Intern</td>
+                <td>GHI Ltd</td>
+                <td><b>30,000 Per Month</b></td>
+            </tr>
+            <tr>
+                <td>Chris Evans</td>
+                <td>Contractor</td>
+                <td>JKL Corp</td>
+                <td><b>800,000 Per Annum</b></td>
+            </tr>
+            <tr>
+                <td>Sarah Lee</td>
+                <td>Full-time</td>
+                <td>MNO Enterprises</td>
+                <td><b>1,100,000 Per Annum</b></td>
+            </tr>
+            <tr>
+                <td>Alexander Wang</td>
+                <td>Part-time</td>
+                <td>PQR Solutions</td>
+                <td><b>60,000 Per Month</b></td>
+            </tr>
+            <tr>
+                <td>Maria Garcia</td>
+                <td>Full-time</td>
+                <td>STU Corporation</td>
+                <td><b>950,000 Per Annum</b></td>
+            </tr>
+            <tr>
+                <td>David Kim</td>
+                <td>Part-time</td>
+                <td>VWX Limited</td>
+                <td><b>55,000 Per Month</b></td>
+            </tr>
+            <tr>
+                <td>Olivia Martinez</td>
+                <td>Full-time</td>
+                <td>YZ Corporation</td>
+                <td><b>850,000 Per Annum</b></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
