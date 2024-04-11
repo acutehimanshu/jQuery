@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Example 2</title>
+    <script src="jquery/jquery-3.6.0.js" ></script>
+    <style>
+        .cool{
+            color: brown;
+        }
+    </style>
+    <script>
+        function addStyle(){
+            $('.tmClass').addClass('cool');
+        }
+
+        function removeStyle(){
+            $('.tmClass').removeClass('cool');
+        }
+    </script>
+</head>
+<body>
+    <h1>Example 3</h1>
+    <div class="tmClass" > Thinking machines </div>
+    <div class="tmClass" >we teach more than we promise to each </div>
+    <div class="tmClass" >Think Big</div>
+    <button type="button" onclick="addStyle()">Add Style</button>
+    <button type="button" onclick="removeStyle()">Add Remove</button>
+</body>
+</html>

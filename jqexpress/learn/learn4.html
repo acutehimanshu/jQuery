@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Example 2</title>
+    <script src="jquery/jquery-3.6.0.js" ></script>
+    <style>
+        
+    </style>
+    <script>
+        function doSomething(){
+            alert($("p").length);
+            alert($("p").html());
+            alert($('.slogan').length);
+            alert($('.slogan').html());
+            alert($('#moto').html());
+            alert($('span').length);
+            alert($('span').html());
+            $('span').each((index, content)=>{
+                alert(index+": "+content.innerHTML);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Example 4</h1>
+    <p>Thinking Machine</p>
+    <div class="slogan">We teach</div>
+    <div id="moto">Earn 50LPA </div>
+    
+    <span>Line one</span>
+    <span>Line Two</span>
+
+
+    <button type="button" onclick="doSomething()">Click me</button>
+</body>
+</html>

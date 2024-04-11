@@ -27,6 +27,10 @@ that will execute when dom will load.
 --
 
 
+
+Methods
+addClass
+removeClass 
 -------------------------
 Index
 Lecture 1: Basic
