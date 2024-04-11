@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 12</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        // function doSomething1(){
+        //     alert('Something is being Done by from <body onload="doSomething1()">');
+        // }
+
+        // function doSomething2(){
+        //     alert('Something is being Done by from window.onload = doSomething2');
+        // }
+        // window.onload = doSomething2;
+
+        /* function doSomething3(){
+            alert('Something is being Done by from event listner');
+        }
+        function doSomething4(){
+            alert('Something is being Done by from event listner again');
+        }
+        window.addEventListener('load', doSomething3);
+        window.addEventListener('load', doSomething4); // by thhis method we can load multiuple times.
+        */
+
+        // same behaviour we can see in jquery 
+        function doSomething5(){ alert('Something is being Done by from Jquery'); }
+        function doSomething6(){ alert('Something is being Done by from Jquery'); }
+        $(doSomething5);
+        $(doSomething6);
+    </script>
+</head>
+<!-- <body onload="doSomething1()"> -->
+<body >
+    <h1>Example 12</h1>
+
+</body>
+</html>

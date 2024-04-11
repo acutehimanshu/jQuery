@@ -46,7 +46,43 @@ $("p.good") that paragraph which class contains good will be selected
 Methods
 addClass
 removeClass 
+
+$('#placementView > tbody > tr:eq(0)').addClass('xyz').end().find("tr:eq(3)").addClass('pqr');
+this is chaining 
+when you hit end()  you get back again to parent. 
+
+we are gatting Jquery wrappers here
+how to get core data from javascript 
+$('#placementView > tbody > tr:eq(0)').html(); from Jquery wrapper  
+$('#placementView > tbody > tr:eq(0)').innerHTML; - ERROR 
+$('#placementView > tbody > tr:eq(0)').get(0).innerHTML - CORRECT with get(0) we can get unwrapped data
+or 
+$('#placementView > tbody > tr:eq(0)')[0].innerHTML - CORRECT with get(0) we can get unwrapped data
+.innerHTML .tagName
+
+
+-----------------------
+$(); // as soon as dom load it will work
+vs 
+window.addEventListern() ;; it will work when dom with its elements like css, js, images and so son will be loaded then it will work
+
+$(#selector).on("AnyMethod", (ev)=>{
+    alert($(this).html()); // ERROR
+}) // if you are using Arrow function then you can not use This inside it. // means object ka address this me bind nhi hota he
+this following won't work as this in arrow function does not get bounded with the object for which the event was designed to be fired. 
+Soultion 
+$(#selector).on("AnyMethod", function()=>{
+    alert($(this).html()); // Working
+})
+but if you want to do it with arrow function then we have solution for it
+
+$(#selector).on("AnyMethod", (ev)=>{
+    //alert($(ev.currentTarget).html()); // ERROR
+    alert($(ev.Target).html()); // ERROR
+})
 -------------------------
 Index
 Lecture 1: Basic
 Lecture 2: Selectors 
+Lecture 3: Chaining
+Lecture 4: OnLoad Events, input methods events

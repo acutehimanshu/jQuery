@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 13</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        $(()=>{
+            // $('#button1').on('click', ()=>{
+            $('#button1').click(()=>{
+                alert("button 1 clicked");
+            });
+
+            // $('#text1').on('change', (ev)=>{
+            $('#text1').change((ev)=>{
+                alert("button 1 clicked: "+ev.target.value);
+            });
+
+            // $('#text2').on('input', (ev)=>{ 
+            /*$('#text2').input((ev)=>{ // input is not a function  // not work for input you have to use old way to do it 
+                alert("button 2 clicked: "+ev.target.value);
+            });*/
+
+            // $('#text1').on('focus', (ev)=>{
+            $('#text1').focus((ev)=>{
+                $('#NoticeBoard').html("Text 1 got focuses");
+            });
+
+            $('#text2').on('focus', (ev)=>{
+                $('#NoticeBoard').html("Text 2 got focuses");
+            });
+
+            // $('#text1').on('blur', (ev)=>{
+            $('#text1').blur((ev)=>{
+                $('#NoticeBoard2').html("Text 1 got blur");
+            });
+
+            $('#text2').on('blur', (ev)=>{
+                $('#NoticeBoard2').html("Text 2 got blur");
+            });
+
+            // $('#city').on('change', function(){
+            //     alert('city changed');
+            // });
+
+            $('#city').on('change', function(ev){
+                alert('Value : '+ev.target.value);
+                alert('Index : '+ev.target.selectedIndex);
+                alert('Text : '+ev.target.options[ev.target.selectedIndex].text);
+            });
+            /*
+            //this following won't work as this in arrow function does not get bounded with the object for which the event was designed to be fired. 
+            $('#city2').on('change', (ev)=>{
+                alert($(this).html());
+            });
+            //jquery-3.6.0.min.js:2 Uncaught TypeError: Cannot read properties of undefined (reading 'createDocumentFragment')
+            Soultion :
+            */
+            /*$('#city2').on('change', function(){
+                // alert($(this).html());
+                alert($(this).find(":selected").val());
+                alert($(this).find(":selected").text());
+            });
+            but you want to do it with only Arrow function then we have sultion for this
+            */
+            $('#city2').on('change', (ev)=>{
+                alert($(ev.currentTarget).html());
+                alert($(ev.target).html());
+                alert($(ev.target).find(":selected").text());
+            });
+        });
+    </script>
+</head>
+<body >
+    <h1>Example 13</h1>
+    <button type="button" id="button1">Button 1</button>
+    <input type="text" id="text1" placeholder="Text 1"/>
+    <input type="text" id="text2" placeholder="Text 2"/>
+    <div id="NoticeBoard"></div>
+    <div id="NoticeBoard2"></div>
+    <hr>
+    <select id="city" name="city">
+        <option value="1">New York</option>
+        <option value="2">Los Angeles</option>
+        <option value="3">Chicago</option>
+        <option value="4">Houston</option>
+        <option value="5">Miami</option>
+    </select>
+
+    <select id="city2" name="city2">
+        <option value="1">New York</option>
+        <option value="2">Los Angeles</option>
+        <option value="3">Chicago</option>
+        <option value="4">Houston</option>
+        <option value="5">Miami</option>
+    </select>
+</body>
+</html>
