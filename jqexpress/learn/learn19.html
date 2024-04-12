@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 19</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <style>
+       .menuView{
+        cursor: cell;
+        background-color: black;
+        color: white;
+       }
+    </style>
+    <script>
+        $(()=>{
+            $('h3[menuItem]').hover(function(ev){
+                $(this).toggleClass('menuView')
+            });
+
+            $('h3[menuItem]').click((ev)=>{
+                alert($(ev.target).text()+" clicked with value: "+$(ev.target).attr('menuItem'));
+            });
+        });
+    </script>
+</head>
+<body >
+    <h1>Example 19</h1>
+    <div>
+        <h3 menuItem="0">Ujjain</h3>
+        <h3 menuItem="1">Indore</h3>
+        <h3 menuItem="2">Bhopal</h3>
+        <h3 menuItem="3">Goa</h3>
+        <br>
+        <br>
+        <br>
+        <h3>God is Great</h3>
+    </div>
+</body>
+</html>

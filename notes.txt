@@ -80,9 +80,19 @@ $(#selector).on("AnyMethod", (ev)=>{
     //alert($(ev.currentTarget).html()); // ERROR
     alert($(ev.Target).html()); // ERROR
 })
+
+
+event bubbling: When hit event for any child then its parent event also hit, parent of parent also and it goes upto window level. 
+even if child handler is not there still bubbling will happen. 
+
+ev.target  : it print(select) the clicked value only  (if child is clicked only child will print) like you cliked on the child of div then only clicked will be seleced
+ev.currentTarget : it print(select) entire div (tag) like you cliked on the child of div then whole div will be seleced
+
+how to stop bubbling: ev.stopPropagation(); 
 -------------------------
 Index
 Lecture 1: Basic
 Lecture 2: Selectors 
 Lecture 3: Chaining
 Lecture 4: OnLoad Events, input methods events
+Lecture 5: Event bubbling, target, currentTarget

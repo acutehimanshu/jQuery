@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 16</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        $(()=>{
+            $('#feature').click((ev)=>{
+                $('#something').toggle('visibility');
+            })  
+        })
+    </script>
+</head>
+<body >
+    <h1>Example 16</h1>
+    <div id="something">
+        <h3>Thinking Machine</h3>
+        <h3>Think Big</h3>
+    </div>
+    Hide : <input type="checkbox" id="feature" />
+</body>
+</html>
