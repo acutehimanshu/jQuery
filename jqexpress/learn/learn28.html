@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 28</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        $(()=>{
+            $(document).keypress((ev)=>{
+                var st= ev.target.selectionStart;
+                var ed = ev.target.selectionEnd;
+                alert(st+" "+ed);
+            });
+        });
+        const dosomething = ()=>{
+            var a = "abcdefghijklmnopqrstuvwxyz";
+            alert(a.slice(2,4));
+        }
+    </script>
+</head>
+<body>
+    <h1>Example 28</h1>
+    <input type="text" id="t1"/>
+    <br>
+    <!-- Enter some charaters like abcdefghijk and select cdefg and place z here you will get the point -->
+    <button type="button" id="b1" onclick="dosomething()">Click me slice a2z 2,4</button> 
+    <!-- 4 is not included -->
+    
+    
+</body>
+</html>

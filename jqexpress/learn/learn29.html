@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 29</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        $(()=>{
+            $('#t1').keypress((ev)=>{
+                if(ev.which >= 97 && ev.which<=122)
+                    ev.preventDefault();
+            });
+
+            $('#t2').keypress((ev)=>{
+                if(ev.which >= 97 && ev.which<=122){
+                    var st = ev.target.selectionStart;
+                    var ed = ev.target.selectionEnd;
+                    var left = ev.target.value.slice(0, st);
+                    var right = ev.target.value.slice(ed);
+                    // alert(left);
+                    // alert(right);
+                    var middle = String.fromCharCode(ev.which-32);
+                    // alert(middle);
+                    ev.target.value = left+middle+right;
+                    ev.preventDefault();
+                    // this is working but when you enter something in between then cursor will comes to end
+                    // check about that it should be after the character we typed.
+                }
+                    
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Example 29</h1>
+    <p>- we want like someone not able to type small characters</p>
+    <input type="text" id="t1" />
+    <br>
+
+    <p>- Convert small to capital / only capital should visible</p>
+    <input type="text" id="t2" />
+    <br>
+    
+    
+</body>
+</html>

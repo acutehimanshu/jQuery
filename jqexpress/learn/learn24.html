@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 24</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        /* $(()=>{
+            $(document).keyup((ev)=>{
+                alert("Key property of event object: "+ev.key);
+            });
+            // not all key we can apply this some are bounded with browsers or windows
+            // some are bounded butt his functionality work like F11 or Start functionality 
+        }); */
+
+        $(()=>{
+            $(document).keyup((ev)=>{
+                // alert("Key property of event object: "+ev.key);
+                // alert("KeyCode property of event object: "+ev.keyCode); // capital & small have same key and this is not Ascii code.
+                // alert("charCode property of event object: "+ev.charCode); 
+                alert("which property of event object: "+ev.which); 
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Example 24</h1>
+    
+</body>
+</html>

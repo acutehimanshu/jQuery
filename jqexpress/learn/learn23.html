@@ -51,6 +51,8 @@
                 $(ev.currentTarget).toggleClass('xyz');
                 var cb = $(ev.currentTarget).find('.cb');
                 if(!$(ev.target).is('.cb')) cb.prop('checked', !cb.prop("checked"));
+                // Lecture 7
+                if(cb.prop("checked") == false) $('#selectAll').prop("checked", false);
             });
 
             /*$('#selectAll').click(function(ev){

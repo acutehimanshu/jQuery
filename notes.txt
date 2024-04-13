@@ -89,6 +89,18 @@ ev.target  : it print(select) the clicked value only  (if child is clicked only 
 ev.currentTarget : it print(select) entire div (tag) like you cliked on the child of div then whole div will be seleced
 
 how to stop bubbling: ev.stopPropagation(); 
+
+$(document)  this represents Dom. 
+
+keyup -> first default functionality will run then our code will work
+keydown -> first our code will run then Default functionality will work
+keypress -> Only work for typeable keys like a to z, space and so on, it will not work for F1 to F11 and enter and so on. 
+// in keypress keycode for small and capital are different // here it wil give charcode 
+// we should use which to use
+
+
+how to stop default execution after our key 
+if(ev.key == 'F3') ev.preventDefault(); // this will only affect things which is associated with browser, like it will not work for capslock
 -------------------------
 Index
 Lecture 1: Basic
@@ -97,3 +109,4 @@ Lecture 3: Chaining
 Lecture 4: OnLoad Events, input methods events
 Lecture 5: Event bubbling, target, currentTarget
 Lecture 6: Checkbox functionality with (checked, checked all, and few checked)
+Lecture 7: Keyboard Keys up, down and press events handling
