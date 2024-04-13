@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 22</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <style>
+
+    </style>
+    <script>
+    $(()=>{
+        $('#b1').click(()=>{
+            // $('.cb').attr('checked', true);
+            var cb = $('.cb');
+            // cb.attr("checked", true);
+            // !true == false
+            // cb.attr("checked", !cb.attr('checked'));
+            // cb.prop("checked", !cb.prop('checked')); // document suggest to use prop in place of attr
+            cb.prop("checked", !cb.is(':checked')); // document suggest this is Slow process. 
+            
+        });
+    });
+    </script>
+</head>
+<body>
+    <h1>Example 22</h1>
+    <input type="checkbox" class="cb" >
+    <button type="button" id="b1" >Click me</button>
+ 
+</body>
+</html>

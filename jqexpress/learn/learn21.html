@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 21</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <style>
+        .xyz{
+            background-color: black;
+            color: white;
+        }
+        table {
+            width: 25%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script>
+        var selectedRow = null; // for select only one
+        $(()=>{
+            $('#cos').click((ev)=>{
+                if(ev.target.tagName  == 'TD'){
+                    // $(this).addClass('xyz'); // WHole table selected
+                    // $(ev.target).addClass('xyz');  // only td selected
+                    if(selectedRow) $(selectedRow).removeClass('xyz');
+                    // $(ev.target.parentElement).addClass('xyz');  // only td selected
+                    selectedRow = ev.target.parentElement;
+                    $(selectedRow).addClass('xyz')
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Example 21</h1>
+    <table id="cos">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Company Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Google</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Apple</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Microsoft</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Amazon</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Facebook</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Tesla</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Alibaba</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Samsung</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>IBM</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Toyota</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

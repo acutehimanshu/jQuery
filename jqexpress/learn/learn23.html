@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 23</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <style>
+        .xyz{
+            background-color: black;
+            color: white;
+        }
+        table {
+            width: 25%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script>
+        var selectedRow = null; // for select only one
+        $(()=>{
+            
+            /*$('#cos > tbody > tr').click(function(ev){
+            // alert(ev.target.tagName); // its giving TD we want TR
+            // alert(ev.currentTarget.tagName); // its giving TR 
+            $(ev.currentTarget).toggleClass('xyz');
+            var cb = $(ev.currentTarget).find('.cb');
+            // cb.prop("checked", !cb.prop('checked'));// due to this line when you click on checkbox it happend tiwce. 
+            // so we want id we are clcking on checkbox we dont need this toggle effer
+
+            // alert($(ev.target).is('.cb'));
+            if(!$(ev.target).is('.cb')) cb.prop('checked', !cb.prop("checked"));
+
+            });*/
+            /*
+            
+            $('#selectAll').click(function(ev){
+                var isChecked = $(this).prop('checked');
+                alert(isChecked);
+            });
+            */
+
+            $('#cos > tbody > tr').click(function(ev){
+                $(ev.currentTarget).toggleClass('xyz');
+                var cb = $(ev.currentTarget).find('.cb');
+                if(!$(ev.target).is('.cb')) cb.prop('checked', !cb.prop("checked"));
+            });
+
+            /*$('#selectAll').click(function(ev){
+                var isChecked = $(this).prop('checked');
+                $('#cos>tbody>tr').trigger('click'); // if already clicked it will toggle it. 
+            }); 
+                we can remove all item before then we will prss trigger
+            */
+
+            $('#selectAll').click(function(ev){
+                var isChecked = $(this).prop('checked');
+                $('#cos>tbody>tr').removeClass('xyz'); // to remove all tr class
+                $('#cos>tbody>tr').find('.cb').prop("checked", false); // to remove all checked checkbox 
+                if(isChecked)
+                    $('#cos>tbody>tr').trigger('click'); // if already clicked it will toggle it. 
+            }); 
+        });
+    </script>
+</head>
+<body>
+    <h1>Example 23</h1>
+    <table id="cos">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Company Name</th>
+                <th> <input type="checkbox" class="cb" id="selectAll" /> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Google</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Apple</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Microsoft</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Amazon</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Facebook</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Tesla</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Alibaba</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Samsung</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>IBM</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Toyota</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
