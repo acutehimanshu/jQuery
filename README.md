@@ -11,3 +11,5 @@ Lecture 5: Event bubbling, target, currentTarget
 
 Lecture 6: Checkbox functionality with (checked, checked all, and few checked)
 
+Lecture 7: Keyboard Keys up, down and press events handling
+
