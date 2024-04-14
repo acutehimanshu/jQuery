@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 33</title>
+    <style>
+       .xyz{
+        height: 40px;
+        overflow: hidden;
+       }
+    </style>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+    $(()=>{
+        var currentHeight = $('.xyz').css("height");
+        $('#abcd').click((ev)=>{
+            ev.preventDefault(); // to stop unnecessary redirection 
+            /*
+            /// case 1
+            if(currentHeight == $('.xyz').css("height")){
+                // $('.xyz').css("height", 'auto');
+                $('.xyz').animate({
+                    "height":"400px"
+                }, 1000, 'linear');
+                $(ev.target).html("show less"); // this effect working before animation complete 
+                // we should use animate cal back function
+            }else{
+                $(ev.target).html("show more");
+                $('.xyz').animate({
+                    "height": currentHeight
+                }, 1000, 'swing');
+                // $('.xyz').css("height", currentHeight);
+            } */ 
+
+            /*
+            // case 2
+            if(currentHeight == $('.xyz').css("height")){
+                $('.xyz').animate({
+                    "height":"400px" // now 400 is fix and animate do not work for Auto property
+
+                }, 2000, 'linear', ()=>{
+                    $(ev.target).html("show less");
+                });
+            }else{
+                $('.xyz').animate({
+                    "height": currentHeight
+                }, 2000, 'swing', ()=>{
+                    $(ev.target).html("show more");
+                });
+            }
+            });
+            */
+
+            var initialHeight = $('.xyz').css('height'); // what we set from css
+            $('.xyz').css('height', "auto");
+            var actualHeight = $('.xyz').css('height');  // what is real height after auto
+            $('.xyz').css('height', initialHeight);
+
+            if(currentHeight == $('.xyz').css("height")){
+                $('.xyz').animate({
+                    "height": actualHeight // now 400 is fix and animate do not work for Auto property
+
+                }, 2000, 'linear', ()=>{
+                    $(ev.target).html("show less");
+                });
+            }else{
+                $('.xyz').animate({
+                    "height": currentHeight
+                }, 2000, 'swing', ()=>{
+                    $(ev.target).html("show more");
+                });
+            }
+            });
+    });
+    </script>
+</head>
+<body>
+    <h1>Example 33</h1>
+    <div class="xyz">
+        Lorem ipsum dolor sit amet <br>consectetur adipisicing elit. <br>Dolore non sunt blanditiis, exercitationem <br>iure voluptas quaerat placeat molestias<br>odio rem, repudiandae beatae nobis! Repellat dolor vel <br>recusandae repudiandae omnis fugiat.<br>Lorem ipsum dolor sit amet <br>consectetur adipisicing elit. <br>Dolore non sunt blanditiis, exercitationem <br>iure voluptas quaerat placeat molestias<br>odio rem, repudiandae beatae nobis! Repellat dolor vel <br>recusandae repudiandae omnis fugiat.<br>
+        Lorem ipsum dolor sit amet <br>consectetur adipisicing elit. <br>Dolore non sunt blanditiis, exercitationem <br>iure voluptas quaerat placeat molestias<br>odio rem, repudiandae beatae nobis! Repellat dolor vel <br>recusandae repudiandae omnis fugiat.<br>Lorem ipsum dolor sit amet <br>consectetur adipisicing elit. <br>Dolore non sunt blanditiis, exercitationem <br>iure voluptas quaerat placeat molestias<br>odio rem, repudiandae beatae nobis! Repellat dolor vel <br>recusandae repudiandae omnis fugiat.<br>
+    </div>
+    <a id="abcd" href="">Show more</a>
+    
+</body>
+</html>

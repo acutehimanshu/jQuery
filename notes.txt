@@ -7,6 +7,18 @@ Framework: ExpressJs
 How to install express? 
 -> npm install express
 
+------------------------------------------------------------------------------------------
+Index
+Lecture 1: Basic
+Lecture 2: Selectors 
+Lecture 3: Chaining
+Lecture 4: OnLoad Events, input methods events
+Lecture 5: Event bubbling, target, currentTarget
+Lecture 6: Checkbox functionality with (checked, checked all, and few checked)
+Lecture 7: Keyboard Keys up, down and press events handling
+Lecture 8: Concatanation, Animation method
+------------------------------------------------------------------------------------------
+
 Default port as per socity is 3000 
 
 DOM - Document Object Model:
@@ -101,12 +113,16 @@ keypress -> Only work for typeable keys like a to z, space and so on, it will no
 
 how to stop default execution after our key 
 if(ev.key == 'F3') ev.preventDefault(); // this will only affect things which is associated with browser, like it will not work for capslock
--------------------------
-Index
-Lecture 1: Basic
-Lecture 2: Selectors 
-Lecture 3: Chaining
-Lecture 4: OnLoad Events, input methods events
-Lecture 5: Event bubbling, target, currentTarget
-Lecture 6: Checkbox functionality with (checked, checked all, and few checked)
-Lecture 7: Keyboard Keys up, down and press events handling
+
+Animate methods 
+
+$('selector').animate(
+{
+    "height": "100px" // set properties here
+}, 
+2000,  // time take to perform action
+'linear',  // type of animation linear/swing and many more
+()=>{      // call back function // once action complete then this will execute
+    $(ev.target).html("show less");
+})
+;

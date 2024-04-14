@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 30</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        const oneClick = ()=>{
+            var a = "10";
+            alert(a+20);  // 1020 // a is string // concatanation
+
+            var a = 10;
+            alert(parseInt(a)+20); // 30 // a is int // sum
+
+            var a = "Good10";
+            alert(parseInt(a)+20); // NaN // a is string with characters
+
+            var a = "10Good";
+            alert(parseInt(a)+20); // 30 // a is string start with number so take upto numbrbs
+
+            var a = "102.3";
+            alert(parseFloat(a)+20);
+        }
+        function TwoClick(){
+            var a = 10;
+            var b = 20;
+            var c = a+b;
+            alert("SUM is :"+c);
+            alert('SUM is ${c}');
+            alert(`SUM is ${c}`);
+        }
+    </script>
+</head>
+<body>
+    <h1>Example 30</h1>
+    <button type="button" onclick="oneClick()">Button 1</button>
+    <br>
+    <button type="button" onclick="TwoClick()">Button 2</button>
+    
+</body>
+</html>

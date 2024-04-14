@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 31</title>
+    <style>
+        .xyz{
+            color: red;
+        }
+        .pqr{ font-size: 24px; color: orange; }
+    </style>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+       function oneClick(){
+        alert($('.xyz').css('color')); // rgb(255,0,0);
+        // change color of the propery
+        $('.xyz').css('color', 'blue')
+       }
+       function TwoClick(){
+        // alert($('.pqr').css('font-size')); // not all browser suppor this // we should go for camelcase
+        alert($('.pqr').css('fontSize')); // 24px
+        var sizeOfFont = parseFloat($('.pqr').css('fontSize'));
+        // $('.pqr').css('font-size', (sizeOfFont*2)+'px');
+        $('.pqr').css('font-size', `${(sizeOfFont*2)}px`);
+       }
+    </script>
+</head>
+<body>
+    <h1 class="xyz">Example 31</h1>
+    <div class="pqr">Ujjain is the City of God</div>
+    <button type="button" onclick="oneClick()">Button 1</button>
+    <br>
+    <button type="button" onclick="TwoClick()">Button 2</button>
+    
+</body>
+</html>

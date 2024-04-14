@@ -29,6 +29,37 @@
                 }
                     
             });
+
+            $('#t3').keypress((ev)=>{
+                if(ev.which >= 97 && ev.which<=122){
+                    var st = ev.target.selectionStart;
+                    var ed = ev.target.selectionEnd;
+                    var left = ev.target.value.slice(0, st);
+                    var right = ev.target.value.slice(ed);
+                    var middle = String.fromCharCode(ev.which-32);
+                    var currentSelectionStart = ev.target.selectionStart;
+                    ev.target.value = left+middle+right;
+                    ev.target.selectionStart = currentSelectionStart+1;
+                    ev.preventDefault();
+                }
+                    
+            });
+
+            $('#t4').keypress((ev)=>{
+                if(ev.which >= 97 && ev.which<=122){
+                    var st = ev.target.selectionStart;
+                    var ed = ev.target.selectionEnd;
+                    var left = ev.target.value.slice(0, st);
+                    var right = ev.target.value.slice(ed);
+                    var middle = String.fromCharCode(ev.which-32);
+                    var currentSelectionStart = ev.target.selectionStart;
+                    ev.target.value = left+middle+right;
+                    ev.target.selectionStart = currentSelectionStart+1;
+                    ev.target.selectionEnd = currentSelectionStart+1;
+                    ev.preventDefault();
+                }
+                    
+            });
         });
     </script>
 </head>
@@ -40,6 +71,14 @@
 
     <p>- Convert small to capital / only capital should visible</p>
     <input type="text" id="t2" />
+    <br>
+
+    <p>- Enter data in between with issue of selection</p>
+    <input type="text" id="t3" />
+    <br>
+
+    <p>- Proper data insert in between </p>
+    <input type="text" id="t4" />
     <br>
     
     
