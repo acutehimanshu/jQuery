@@ -13,5 +13,6 @@ Lecture 6: Checkbox functionality with (checked, checked all, and few checked)
 
 Lecture 7: Keyboard Keys up, down and press events handling
 
-Lecture 8: Concatanation, Animation method
+Lecture 8: Concatenation, Animation method
 
+Lecture 9: 
