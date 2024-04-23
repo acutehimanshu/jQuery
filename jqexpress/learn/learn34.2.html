@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 34</title>
+    <style>
+       .xyz{
+        height: 40px;
+        overflow: hidden;
+       }
+    </style>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        var initialHeight = 0;
+        var actualHeight= 0;
+    $(()=>{
+        var currentHeight = $('#xyz').css("height");
+        $('#abcd').click((ev)=>{
+            ev.preventDefault(); 
+            initialHeight = $('#xyz').css('height'); 
+            $('#xyz').css('height', "auto");
+            actualHeight = $('#xyz').css('height'); 
+            $('#xyz').css('height', initialHeight);
+
+            $(window).on('resize', ()=>{
+                var isOfinirialHeight;
+                if($('#abcd').html() == 'show more')
+                    isOfinirialHeight = true;
+                else isOfinirialHeight = false;
+                $('#xyz').css('height', "auto");
+                actualHeight = $('#xyz').css('height'); 
+                if(isOfinirialHeight) {
+                    $('#xyz').css('height', initialHeight);
+                }
+            });
+
+
+            if(currentHeight == $('#xyz').css("height")){
+                $('#xyz').animate({ 
+                    "height": actualHeight 
+
+                }, 2000, 'linear', ()=>{
+                    $(ev.target).html("show less");
+                });
+            }else{
+                $('#xyz').animate({ 
+                    "height": currentHeight
+                }, 2000, 'swing', ()=>{
+                    $(ev.target).html("show more");
+                });
+            }
+            });
+    });
+    </script>
+</head>
+<body>
+    <h1>Example 34</h1>
+    <div class="xyz" id="xyz">
+        When we change the window size then auto hight will be changed , we need to managet that.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat. ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat. ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat. ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat. ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat. ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat. ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat. ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat. ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat. ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem iure voluptas quaerat placeat molestiasodio rem, repudiandae beatae nobis! Repellat dolor vel recusandae repudiandae omnis fugiat.
+    </div>
+    <a id="abcd" href="">Show more</a>
+
+    <div class="xyz">
+        consectetur adipisicing elit. Dolore non sunt blanditiis, exercitationem <br>iure voluptas quaerat placeat molestias<br>odio rem, repudiandae beatae nobis! Repellat dolor vel <br>recusandae repudiandae omnis fugiat.<br>Lorem ipsum dolor sit amet <br>consectetur adipisicing elit. <br>Dolore non sunt blanditiis, exercitationem <br>iure voluptas quaerat placeat molestias<br>odio rem, repudiandae beatae nobis! Repellat dolor vel <br>recusandae repudiandae omnis fugiat.<br>
+        Lorem ipsum dolor sit amet <br>consectetur adipisicing elit. <br>Dolore non sunt blanditiis, exercitationem <br>iure voluptas quaerat placeat molestias<br>odio rem, repudiandae beatae nobis! Repellat dolor vel <br>recusandae repudiandae omnis fugiat.<br>Lorem ipsum dolor sit amet <br>consectetur adipisicing elit. <br>Dolore non sunt blanditiis, exercitationem <br>iure voluptas quaerat placeat molestias<br>odio rem, repudiandae beatae nobis! Repellat dolor vel <br>recusandae repudiandae omnis fugiat.<br>
+    </div>bvb
+    <p>Issue when we are using class for the effets it will applicable to all the classes
+        we should go for Id here to apply features. so it will applicable to those we are choosing
+    </p>
+</body>
+</html>

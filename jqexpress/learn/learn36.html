@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 36</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+       $(()=>{
+        $('#threeDots').show();
+        $('#extraData').hide();
+        $('#btnOne').click(function(){
+            var txt = $(this).html();
+            if(txt == 'show more'){
+                $('#threeDots').hide();
+                $('#extraData').show();
+                $('#btnOne').html('show less');
+            }else{
+                $('#threeDots').show();
+                $('#extraData').hide();
+                $('#btnOne').html('show more');
+            }
+        });
+       });
+    </script>
+</head>
+<body>
+    <h1>Example 36</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex delectus in, repellat praesentium maxime, corporis explicabo est quo consequuntur, voluptas consequatur vitae sequi aspernatur tempore eveniet beatae ut animi rerum?
+        <span id="threeDots">...</span>
+        <span id="extraData">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex delectus in, repellat praesentium maxime, corporis explicabo est quo consequuntur, voluptas consequatur vitae sequi aspernatur tempore eveniet beatae ut animi rerum?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex delectus in, repellat praesentium maxime, corporis explicabo est quo consequuntur, voluptas consequatur vitae sequi aspernatur tempore eveniet beatae ut animi rerum?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex delectus in, repellat praesentium maxime, corporis explicabo est quo consequuntur, voluptas consequatur vitae sequi aspernatur tempore eveniet beatae ut animi rerum?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex delectus in, repellat praesentium maxime, corporis explicabo est quo consequuntur, voluptas consequatur vitae sequi aspernatur tempore eveniet beatae ut animi rerum?
+        </span>
+    </p>
+    <button type="button" id="btnOne">show more</button>
+</body>
+</html>

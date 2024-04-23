@@ -17,6 +17,10 @@ Lecture 5: Event bubbling, target, currentTarget
 Lecture 6: Checkbox functionality with (checked, checked all, and few checked)
 Lecture 7: Keyboard Keys up, down and press events handling
 Lecture 8: Concatanation, Animation method
+Lecture 9: Show more functionality
+Lecture 10: 
+Lecture 11: 
+Lecture 12: 
 ------------------------------------------------------------------------------------------
 
 Default port as per socity is 3000 
