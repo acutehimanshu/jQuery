@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 37</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+       $(()=>{
+        $('input:checkbox').click((ev)=>{
+            // alert('grt');
+            // alert($(ev.target).val());
+            var checkBoxCompRef = $(ev.target);
+            var divId = checkBoxCompRef.val();
+            var isChecked = checkBoxCompRef.is(':checked')
+            // console.log(divId);
+            // console.log(isChecked);
+            var divRef  = $('#'+divId);
+            console.log(divRef.html());
+            if(isChecked){
+                var bodyWidth = parseFloat($('body').css('width'));
+                var divWidth = parseFloat(divRef.css('width'));
+                var left = bodyWidth-divWidth-60;
+                divRef.animate({'left':left+"px"}, 'slow');
+            }
+            else 
+                divRef.animate({'left':"0px"}, 'slow');
+        });
+       })
+       $(window).on('resize', ()=>{
+        $('input:checkbox:checked').each((index, content)=>{
+            let divId = $(content).attr('value');
+            let divRef  = $('#'+divId);
+            let bodyWidth = parseFloat($('body').css('width'));
+            let divWidth = parseFloat(divRef.css('width'));
+            let left = bodyWidth-divWidth-60;
+            divRef.animate({'left':left+"px"}, 'fast');
+        });
+       });
+    </script>
+</head>
+<body>
+    <h1>Example 37</h1>
+
+    <h3 style="position: absolute; left: 25px;">Tour Packages</h3>
+    <h3 style="position: absolute; right: 25px;">Selected Tour Packages</h3>
+    <div class="city" id="d1">
+        <b>Ujjain</b><br>
+        <u>Slogan</u>
+    </div>
+    <div class="city" id="d2">
+        <b>Indore</b><br>
+        <u>Slogan</u>
+    </div>
+    <div class="city" id="d3">
+        <b>Bhopal</b><br>
+        <u>Slogan</u>
+    </div>
+    <div class="checker">
+        &lt; Ujjain &gt; <input type="checkbox" value="d1"> &nbsp;&nbsp;&nbsp;
+        &lt; Indore &gt; <input type="checkbox" value="d2"> &nbsp;&nbsp;&nbsp;
+        &lt; Bhopal &gt; <input type="checkbox" value="d3"> &nbsp;&nbsp;&nbsp;
+    </div>
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+        .checker{
+            position: absolute;
+            border: 1px solid black;
+            padding: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+        }
+        .city{
+            position: relative;
+            border: 1px solid red;
+            padding: 5px;
+            top:80px;
+            width: 200px;
+            margin-top: 10px;
+            margin-left: 25px;
+        }
+    </style>
+</body>
+</html>

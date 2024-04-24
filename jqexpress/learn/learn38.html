@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 38</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+       function moveItem(){
+            // $('#abcd').animate({left:"600px"}, 'fast').animate({top:"300px"}, '5000');
+            $('#abcd').animate({left:"600px"}, {"duration":"5000", queue:false}).animate({top:"300px"}, {"duration":"5000", queue:false});
+            // to move things together we need to pass duration same and queye false for symatric flow.
+       }
+    </script>
+</head>
+<body>
+    <h1>Example 38</h1>
+    <button type="button" onclick="moveItem()">Move</button>
+    <div id="abcd">
+        <br>
+        <h3>Line 1</h3>
+        <h3>Line 2</h3>
+    </div>
+    
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+        #abcd{
+            border: 1px solid red;
+            width: 200px;
+            text-align: center;
+            position: absolute;
+        }
+    </style>
+</body>
+</html>
