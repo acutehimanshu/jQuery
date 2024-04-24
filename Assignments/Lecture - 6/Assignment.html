@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <style>
+        .xyz{
+            background-color: black;
+            color: white;
+        }
+        table {
+            width: 25%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script>
+        var selectedRow = null; // for select only one
+        var lengthOfTable = 10;
+        $(()=>{
+            $('#cos > tbody > tr').click(function(ev){
+                $(ev.currentTarget).toggleClass('xyz');
+                var cb = $(ev.currentTarget).find('.cb');
+                if(!$(ev.target).is('.cb')){
+                    cb.prop('checked', !cb.prop("checked"));
+                }
+                // if(!$(ev.target).find('.cb').is(':checked')){
+                //     $('#selectAll').prop('checked', false); // solution 1
+                // }
+                if($('#cos>tbody>tr').find('.cb:checked').length == lengthOfTable){
+                    $('#selectAll').prop('checked', true);
+                }else{
+                    $('#selectAll').prop('checked', false); // soultion 2
+                }
+            });
+
+            $('#selectAll').click(function(ev){
+                var isChecked = $(this).prop('checked');
+                $('#cos>tbody>tr').removeClass('xyz'); 
+                $('#cos>tbody>tr').find('.cb').prop("checked", false); 
+                if(isChecked)
+                    $('#cos>tbody>tr').trigger('click'); 
+            }); 
+        });
+    </script>
+</head>
+<body>
+    <h1>Assignment 2</h1>
+    <p>Task: If someone click on any of the checkbox, if selectAll is selected then it should not be selected after check.</p>
+    <table id="cos">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Company Name</th>
+                <th> <input type="checkbox" class="cb" id="selectAll" /> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Google</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Apple</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Microsoft</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Amazon</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Facebook</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Tesla</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Alibaba</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Samsung</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>IBM</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Toyota</td>
+                <td><input type="checkbox" class="cb" /></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -19,7 +19,7 @@ Lecture 7: Keyboard Keys up, down and press events handling
 Lecture 8: Concatanation, Animation method
 Lecture 9: 'Show more' functionality
 Lecture 10: Object movemenet with with scripts
-Lecture 11: 
+Lecture 11: Oracle Db connection and fetch employee deta
 Lecture 12: 
 ------------------------------------------------------------------------------------------
 
@@ -130,3 +130,44 @@ $('selector').animate(
     $(ev.target).html("show less");
 })
 ;
+to perform multiple animation we can do like
+selector.animate().animate().animate() -> it will be in queue
+of you want to use them together then {queue:false} we have to pass in 2nd argument
+--
+L11 
+NPM install oracledb
+this is the way we can connect to hr
+connection = await oracle.getConnection({
+    user: "hr",
+    password: "hr",
+    connectionString: "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xepdb1)))"
+});
+ 
+
+ complete code 
+ let connection = null;
+    try {
+        connection = await oracle.getConnection({
+            user: "hr",
+            password: "hr",
+            connectionString: "(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=xepdb1)))"
+        });
+        const result = await connection.execute("select * from employees");
+        const rows = result.rows; // use this rows 
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    } finally {
+        if (connection) {
+            try {
+                await connection.close();
+            } catch (closeErr) {
+                console.error('Error closing the connection:', closeErr);
+            }
+        }
+    }
+
+AJAX
+    - using xmlHttpObject
+    - using Jquery Ajax function 
+    - using fetch API. 
