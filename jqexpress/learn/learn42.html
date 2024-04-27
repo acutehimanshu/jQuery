@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 42 - AJAX without Jquery | Fetch API</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+       window.addEventListener('load', function(){
+        fetch('getEmployees').then((resp)=>{
+            return resp.json();
+        }).then((employeesData)=>{
+            var tbl = document.getElementById('employeeViewTable');
+                    var tbd = tbl.getElementsByTagName("tbody")[0];
+                    var i = 0; 
+                    var row, cell;
+                    while(i<employeesData.length){
+                        row = document.createElement("tr");
+                        cell = document.createElement("td");
+                        cell.append(document.createTextNode(i+1));
+                        row.append(cell);
+
+                        cell = document.createElement("td");
+                        cell.append(employeesData[i].id);
+                        row.append(cell);
+
+                        cell = document.createElement("td");
+                        cell.append(employeesData[i].firstName);
+                        row.append(cell);
+
+                        cell = document.createElement("td");
+                        cell.append(employeesData[i].lastName);
+                        row.append(cell);
+                        tbd.append(row);
+                        i++;
+                    }
+        });
+       });
+    </script>
+</head>
+<body>
+    <h1>Example 42 - AJAX without Jquery | Fetch API</h1>
+    <h2> Employees</h2>
+    <table id="employeeViewTable">
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+        #abcd{
+            border: 1px solid red;
+            width: 200px;
+            text-align: center;
+            position: absolute;
+        }
+        table{
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        table th,td{
+            border: 1px solid black;
+        }
+    </style>
+</body>
+</html>
