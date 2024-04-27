@@ -20,7 +20,7 @@ Lecture 8: Concatanation, Animation method
 Lecture 9: 'Show more' functionality
 Lecture 10: Object movemenet with with scripts
 Lecture 11: Oracle Db connection and fetch employee deta
-Lecture 12: 
+Lecture 12: Ajax Code with Core JS, get Method and Ajax methods. 
 ------------------------------------------------------------------------------------------
 
 Default port as per socity is 3000 
@@ -166,8 +166,22 @@ connection = await oracle.getConnection({
             }
         }
     }
-
+L12
 AJAX
     - using xmlHttpObject
     - using Jquery Ajax function 
     - using fetch API. 
+Asyncronous js and XML
+
+XML - extensible markup language 
+format: 
+<employee>
+    <name>data</name>
+    <salary>data</salary>
+</employee>
+then JSON come 
+{ "name":"value", "key":{"key":"value}}
+
+1) Pure javascript
+2) With Jquiry get method 
+3) With Jquery AJAX method

@@ -1,0 +1,40 @@
+AJAX = Asyncronous javascript And XML;
+XML: Extensible markup language
+
+var xhr = new XMLHttpRequest();
+that contains readyState variable that haves values 0,1,2,3,4
+0 - Nothing has yet happend
+1 - connection opended
+2 - header received
+3 - necessary response loaded
+4 - done
+
+we want when when this readyState values change then something should happend 
+
+xhr.readystatechange = function(){} // this will execute everytime when the state change. 
+
+xhr.open('GET, 'getEmployee'); - type of method, name of API. 
+then we will send request 
+
+xhr.send(); 
+
+-- 
+we have to deal with only when its done 
+if xhr.readtState == 4  
+
+
+HTTP response code - search on google 
+200 - ok 
+404 - not found 
+we can get that status in xhr.status 
+
+xhr.status == 200
+
+if(xhr.readyState == 4 && xhr.status == 200){
+    our functionality 
+}
+
+we will get response in 
+xhr.responseText
+we will get in string format 
+JSON.parse(xhr.responseText) // this will convert string to JSON. 

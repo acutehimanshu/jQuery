@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 40 - AJAX with Jquery</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        // self written
+        $(()=>{
+            $.get('getEmployees', function(employeesData){
+                console.log(employeesData);
+                var tbd = $('#employeeViewTable').find('tbody'); 
+                var row; 
+                var cell;
+                employeesData.forEach((element, index) => {
+                    row = $("<tr>")
+                    cell = $(`<td>${index+1}</td>`)
+                    row.append(cell);
+
+                    cell = $(`<td>${element.id}</td>`)
+                    row.append(cell);
+
+                    cell = $(`<td>${element.firstName}</td>`)
+                    row.append(cell);
+
+                    cell = $(`<td>${element.lastName}</td>`)
+                    row.append(cell);
+                    tbd.append(row);
+                });
+            });
+        });
+        /*
+        sir code
+        $(()=>{
+            $.get("getEmployees", (employees, status)=>{
+                // console.log(status);
+                console.log(employees);
+                var tbd = $('#employeeViewTable').find('tbody');
+                var i, row, cell; 
+                i = 0;
+                while(i<employees.length){
+                    row = $("<tr>");
+                    cell = $("<td>"+(i+1)+"</td>");
+                    row.append(cell);
+                    cell = $("<td>"+(employees[i].id)+"</td>");
+                    row.append(cell);
+                    cell = $("<td>"+(employees[i].firstName)+"</td>");
+                    row.append(cell);
+                    cell = $("<td>"+(employees[i].lastName)+"</td>");
+                    row.append(cell);
+                    tbd.append(row);
+                    i++;
+                }
+            });
+        });
+     */</script>
+</head>
+<body>
+    <h1>Example 40 - AJAX with Jquery</h1>
+    <h2> Employees</h2>
+    <table id="employeeViewTable">
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+        #abcd{
+            border: 1px solid red;
+            width: 200px;
+            text-align: center;
+            position: absolute;
+        }
+        table{
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        table th,td{
+            border: 1px solid black;
+        }
+    </style>
+</body>
+</html>
