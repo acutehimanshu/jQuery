@@ -16,3 +16,5 @@ Lecture 7: Keyboard Keys up, down and press events handling
 Lecture 8: Concatenation, Animation method
 
 Lecture 9: 'Show more' functionality
+
+Lecture 10: Object movemenet with with scripts
