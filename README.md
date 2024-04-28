@@ -18,3 +18,5 @@ Lecture 8: Concatenation, Animation method
 Lecture 9: 'Show more' functionality
 
 Lecture 10: Object movemenet with with scripts
+
+Lecture 11: Oracle Db connection and fetch employee deta
