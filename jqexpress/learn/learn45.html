@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 45</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        function doSomething(){
+            var promise = new Promise(function(abcd){
+                setTimeout(() => {
+                    abcd("GOD is great.");
+                }, 5000);
+            });
+            return promise;
+        }
+        function oneClick(){
+            doSomething().then((slogan)=>{
+                console.log(slogan);
+            });
+            console.log("Ujjain is the City of GOD");
+        }
+        async function twoClick(){
+            await doSomething().then((slogan)=>{
+                console.log(slogan);
+            });
+            console.log("Ujjain is the City of GOD");
+        }
+
+        function timepass(ms){
+            return new Promise(function(resolve){
+                setTimeout(resolve, ms);
+            })
+        }
+
+        async function threeClick(){
+            console.log('cool');
+            await timepass(5000);
+            console.log('Too cool');
+        }
+    </script>
+</head>
+<body>
+    <h1>Example 45</h1>
+    <button type="button" onclick="oneClick()">One</button>
+    <button type="button" onclick="twoClick()">Two</button>
+    <button type="button" onclick="threeClick()">Three</button>
+
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>

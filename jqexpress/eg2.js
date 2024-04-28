@@ -43,6 +43,34 @@ app.get("/getEmployees", async function(request, response){
     }
 });
 
+app.get("/getNames", async function(request, response){
+    let connection = null;
+    try{
+        connection = await oracle.getConnection({
+            user:"hr",
+            password:"hr",
+            connectionString:"//localhost:1521/xepdb1"
+        });
+        let resultSet = await connection.execute("select first_name from employees where first_name like 'A%'");
+        var list = [];
+        resultSet.rows.forEach((item)=>{
+            console.log(item)
+            list.push(item[0]);
+        });
+        response.send(list);
+    }catch(err){
+        console.log(err.message)
+    }
+    finally{
+        if (connection) {
+            try {
+                await connection.close();
+            } catch (closeErr) {
+                console.error('Error closing the connection:', closeErr);
+            }
+        }
+    }
+});
 app.get('/employees', async function(req, res){
     let connection = null;
     try {

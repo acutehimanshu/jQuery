@@ -22,6 +22,7 @@ Lecture 10: Object movemenet with with scripts
 Lecture 11: Oracle Db connection and fetch employee deta
 Lecture 12: Ajax Code with Core JS, get Method and Ajax methods. 
 Lecture 13: Ajax with Fetch API. 
+Lecture 14: setTimeout method, setInterval, Jquery UI widgets (accordion, autocomplete)
 ------------------------------------------------------------------------------------------
 
 Default port as per socity is 3000 
@@ -186,3 +187,28 @@ then JSON come
 1) Pure javascript
 2) With Jquiry get method 
 3) With Jquery AJAX method
+
+L14: 
+when you call settimeout with given time then it will execute that once after given amount of time. 
+
+if we want like it will keep executing after perticual period of time 
+1) we can call settimeout inside the setTimeout  (setTimeOut(function, time))
+2) setInterval (setintercal(function, time))
+---
+Promise 
+
+when we call a function with promise and it will take time
+in that case next functionality will execute.  Example 45 oneCLick method
+
+but we want to execute that thing first then next thing will execute then 
+we need to use async await concept.  example 45 twoClick method 
+function abcd(){
+    doSomething().then(()=>{ console.log 'something happend'; }); // take 2 seconds //  2ndly this will load
+    console.log('new line ')  // first this will load 
+}
+
+if we want to use await, its mandatory that function should be async.
+async function abcd(){
+    await doSomething().then(()=>{ console.log 'something happend'; }); // first this will load independ of time taken 
+    console.log('new line ') // once wait complete then this will execute at 2nd. 
+}

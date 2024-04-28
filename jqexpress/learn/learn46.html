@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 46</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui-1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.13.3/jquery-ui.css">
+    <script>
+        $(()=>{
+            // case 1// nothing given it will look like simple html
+            // case 2 // it will make accodtion like structure auto
+            /* $('#technologies').accordion(); */ 
+            // case 3: // make 2nd element active
+            $('#technologies').accordion({
+                active:1, // by default 1 active
+                collapsible:true, // we can close all tabs
+                headers:"h4", // we can speify header // try by rearranage item yourself. 
+                activate: doSomething // event passing
+            });
+        });
+        function doSomething(ev,ui){
+            console.log(ev);
+            console.log(ui);
+            console.log($(ui.oldHeader).html());
+            console.log($(ui.oldPanel).html());
+            console.log($(ui.newHeader).html());
+            console.log($(ui.newPanel).html());
+        }
+    </script>
+</head>
+<body>
+    <h1>Example 46 - Accordion Example - Widgets </h1>
+    <div id="technologies">
+        <h4>Topic One</h4>
+        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fugiat ducimus natus voluptatibus provident, sapiente in. Sint delectus atque, iure fuga esse recusandae perferendis at, culpa veritatis sunt ut. Rem.</div>
+        <h2>Topic two</h2>
+        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fugiat ducimus natus voluptatibus provident, sapiente in. Sint delectus atque, iure fuga esse recusandae perferendis at, culpa veritatis sunt ut. Rem.</div>
+        <h1>Topic three</h1>
+        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fugiat ducimus natus voluptatibus provident, sapiente in. Sint delectus atque, iure fuga esse recusandae perferendis at, culpa veritatis sunt ut. Rem.</div>
+    </div>
+
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>

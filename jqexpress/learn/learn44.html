@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 44 - setInterval</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script>
+        var clock ; 
+        function updateTime(){
+            var time = new Date();
+            var now = time.getHours()+":"+time.getMinutes()+":"+time.getSeconds();
+            $('#time').html(now);
+        }
+        function startTime(){
+            updateTime();
+            clock = setInterval(updateTime, 1000); // this will start execution after 1 second 
+        }
+        function endTime(){
+            clearInterval(clock);
+        }
+    </script>
+</head>
+<body>
+    <h1>Example 44 - setInterval</h1>
+    <p id="time"></p>
+    <button type="button" onClick="startTime()">Start Clock</button>
+    <button type="button" onClick="endTime()">Stop Click</button>
+
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 48</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui-1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.13.3/jquery-ui.css">
+    <script>
+        var firstNameList = ['Amit', 'sudhir', 'shambhu', 'gopal', 'ganesh', 'bobby', 'praneet', 'lalita', 'geeta', 'babita', 'prakash', 'panjaj' , 'sachine'];
+        var lastNameList = ['sharma','gupta', 'Joshi', 'Ayachit', 'Gupte', 'Patidar', 'Jain', 'kelkar', 'Prajapati']
+        $(()=>{
+            $('#firstName').autocomplete({
+                source: firstNameList
+            }); // this will by default tive compoonent that contains a anywhere
+            // we want only start with given character
+            $('#lastName').autocomplete({
+                source: function(data, giveBackThough){
+                    var lts = []; 
+                    var i = 0;
+                    while(i<lastNameList.length){
+                        if(lastNameList[i].toLowerCase().startsWith(data.term.toLowerCase())){
+                            lts.push(lastNameList[i]);
+                        }
+                        i++;
+                    }
+                    giveBackThough( lts);
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <h1>Example 48- Input Auto Complete </h1>
+    First Name: <input type="text" id="firstName"><br/><br/>
+    Last Name: <input type="text" id="lastName">
+
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>
