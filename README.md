@@ -20,3 +20,5 @@ Lecture 9: 'Show more' functionality
 Lecture 10: Object movemenet with with scripts
 
 Lecture 11: Oracle Db connection and fetch employee deta
+
+Lecture 12: Ajax Code with Core JS, get Method and Ajax methods. 
