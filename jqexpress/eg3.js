@@ -1,7 +1,9 @@
 const express = require('express');
 const oracle = require('oracledb');
+const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
+const urlEncodedBodyparser = bodyParser.urlencoded({extended:false});
 
 class Employee {
     constructor(id, fn, ln){
@@ -43,7 +45,7 @@ app.get("/getEmployees", async function(request, response){
     }
 });
 
-app.get("/getNames", async function(request, response){
+app.get("/getNames", urlEncodedBodyparser,  async function(request, response){
     let connection = null;
     try{
         connection = await oracle.getConnection({
@@ -51,7 +53,10 @@ app.get("/getNames", async function(request, response){
             password:"hr",
             connectionString:"//localhost:1521/xepdb1"
         });
-        let resultSet = await connection.execute("select first_name from employees where first_name like 'A%' ");
+        var firstNamePattern = request.query.firstNamePattern;
+        console.log(firstNamePattern)
+        // let resultSet = await connection.execute("select first_name from employees where first_name like 'A%' order by first_name");
+        let resultSet = await connection.execute(`select first_name from employees where lower(first_name) like '${firstNamePattern}%' order by first_name`);
         var list = [];
         resultSet.rows.forEach((item)=>{
             console.log(item)

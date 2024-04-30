@@ -23,6 +23,7 @@ Lecture 11: Oracle Db connection and fetch employee deta
 Lecture 12: Ajax Code with Core JS, get Method and Ajax methods. 
 Lecture 13: Ajax with Fetch API. 
 Lecture 14: setTimeout method, setInterval, Jquery UI widgets (accordion, autocomplete)
+Lecture 15: Body Parser, passing value to Query String. 
 ------------------------------------------------------------------------------------------
 
 Default port as per socity is 3000 
@@ -212,3 +213,8 @@ async function abcd(){
     await doSomething().then(()=>{ console.log 'something happend'; }); // first this will load independ of time taken 
     console.log('new line ') // once wait complete then this will execute at 2nd. 
 }
+
+L14 
+urlEncodedBodyparser = bodyParser.urlencoded({extended:false});
+extended  true - QS moqule will be used
+extended  false - Query String Module will be used. 

@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Assignment 4 - L14</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui-1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.13.3/jquery-ui.css">
+    <script>
+        var firstNameList = ['Amit', 'sudhir', 'shambhu', 'gopal', 'ganesh', 'bobby', 'praneet', 'lalita', 'geeta', 'babita', 'prakash', 'panjaj' , 'sachine'];
+        var lastNameList = ['sharma','gupta', 'Joshi', 'Ayachit', 'Gupte', 'Patidar', 'Jain', 'kelkar', 'Prajapati']
+        function getDataFromDB(){
+            const promise = new Promise((resolve)=>{
+                fetch('getNames').then((resp)=>{ return resp.json();  }).then( (listOfnames)=>{ resolve(listOfnames); } );
+            });
+            return promise;
+        }
+        $(()=>{
+            $('#firstName').autocomplete({
+                source: function(data, giveBackThrough){
+                    getDataFromDB().then((lst)=>{
+                        giveBackThrough(lst);
+                    });
+                    
+                }
+            });
+            $('#lastName').autocomplete({
+                source: function(data, giveBackThrough){
+                    var lts = []; 
+                    var i = 0;
+                    while(i<lastNameList.length){
+                        if(lastNameList[i].toLowerCase().startsWith(data.term.toLowerCase())){
+                            lts.push(lastNameList[i]);
+                        }
+                        i++;
+                    }
+                    giveBackThough( lts);
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <h1>Assignment 4 - L14 </h1>
+    <p> Task : Create autocomplete Dynamically from database. </p>
+    First Name: <input type="text" id="firstName"><br/><br/>
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>

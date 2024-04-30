@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 48</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui-1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.13.3/jquery-ui.css">
+    <script>
+        function getFirstNames(){
+            return new Promise((resolve)=>{
+                fetch('getNames').then((response)=>{ return response.json(); }).then((fns)=>{ resolve(fns); });
+            });
+        }
+        $(()=>{
+            $('#firstName').autocomplete({
+                source: function(data, giveBackThrough){
+                    getFirstNames().then((firstNames)=>{
+                        giveBackThrough(firstNames);
+                    });
+                }
+            }); 
+        });
+    </script>
+</head>
+<body>
+    <h1>Example 48- Input Auto Complete </h1>
+    First Name: <input type="text" id="firstName"><br/><br/>
+    Last Name: <input type="text" id="lastName">
+
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>
