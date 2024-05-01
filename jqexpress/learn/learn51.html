@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 51 - Calendar</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui-1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.13.3/jquery-ui.css">
+    <script>
+        $(()=>{
+            $('#dateOfBirth1').datepicker({
+            "showOn":"button" ,
+            dateFormat: 'd/m/yy',
+            });
+
+            $('#dateOfBirth2').datepicker({
+            "showOn":"both" , // on focus of input as well as click on botton
+            dateFormat: 'd/m/yy',
+            buttonText:"D" 
+            });
+
+            $('#dateOfBirth3').datepicker({
+            "showOn":"both" , // on focus of input as well as click on botton
+            dateFormat: 'd/m/yy',
+            buttonImage:"images/calendar.png" 
+            });
+
+            $('#dateOfBirth4').datepicker({
+            "showOn":"both" , 
+            dateFormat: 'd/m/yy',
+            buttonImage:"images/calendar.png",
+            buttonImageOnly: true, 
+            changeYear: true, 
+            changeMonth:true, 
+            showWeek:true, 
+            showButtonPanel: true,
+            minDate: "25/04/2024",
+            maxDate: '05/05/2024'
+            });
+
+        });
+        
+    </script>
+</head>
+<body>
+    <h1>Example 51 - Calendar </h1>
+    <div>
+        Enter date of Birth: <input type="text" id="dateOfBirth1"><br><br>
+        Enter date of Birth: <input type="text" id="dateOfBirth2"><br><br>
+        Enter date of Birth: <input type="text" id="dateOfBirth3"><br><br>
+        Enter date of Birth: <input type="text" id="dateOfBirth4"><br><br>
+    </div>
+    
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>

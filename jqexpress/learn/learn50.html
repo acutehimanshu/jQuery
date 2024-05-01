@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 50 - Calendar</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui-1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.13.3/jquery-ui.css">
+    <script>
+        $(()=>{
+            $('#dateOfBirth1').datepicker();
+            $('#dateOfBirth2').datepicker({
+                altField : '#dob2',
+                altFormat : 'D dd, MM y'
+
+            });
+        });
+        /*
+        Date format specified
+        d single Digit date in case of 1-9
+        dd double digit date
+        y 2 difit year like 24,25
+        yy - 4 digit year like 2024
+        m - single difit month in case of 1-9
+        mm - double digit month 01-12
+        M - Month short name
+        MM - Month Full Name
+        D -  day half name
+        DD - Day Full name
+        */
+       $(()=>{
+            $('#dateOfBirth3').datepicker({
+                altField : '#dob3',
+                altFormat : 'd/m/yy',
+                defaultDate: '10/05/1996' // this will be taken as 5 october
+
+            });
+
+            $('#dateOfBirth4').datepicker({
+                altField : '#dob4',
+                altFormat : 'd/m/yy',
+                defaultDate: '10/05/1996',
+                dateFormat : "d/mm/yy"
+
+            });
+       });
+    </script>
+</head>
+<body>
+    <h1>Example 50 - Calendar </h1>
+    <div id="dateOfBirth1"></div>
+    <div id="dateOfBirth2"></div>
+    <input type="text" id="dob2"/>
+    <div id="dateOfBirth3"></div>
+    <input type="text" id="dob3"/>
+    <div id="dateOfBirth4"></div>
+    
+    <input type="text" id="dob4"/>
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>

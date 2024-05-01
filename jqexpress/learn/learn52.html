@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 52 - Buttons </title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui-1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.13.3/jquery-ui.css">
+    <script>
+        $(()=>{
+           $('#btn1').button();
+           $('#achr1').button();
+           $('#ujjain').button();
+           $('#Indore').button();
+           $('#dewas').button();
+           $('#nationality').buttonset();
+           $('#nation').buttonset();
+
+        });
+        
+    </script>
+</head>
+<body>
+    <h1>Example 52 - Buttons  </h1>
+    <button type="button" id="btn1"> Btn 1</button><br><br>
+    <a href="#"  id="achr1"> Btn 1</a><br><br>
+    
+    <label for="ujjain">Ujjain</label>
+    <input type="checkbox" id="ujjain"><br><br>
+
+    <label for="Indore">Indore</label>
+    <input type="checkbox" id="Indore"><br><br>
+
+    <label for="dewas">Dewas</label>
+    <input type="checkbox" id="dewas"><br><br><br><br>
+    <div id="nationality">
+        <label for="Indian">Indian</label>
+        <input type="checkbox" id="Indian"><br><br>
+
+        <label for="American">American</label>
+        <input type="checkbox" id="American"><br><br>
+
+        <label for="Australian">Australian</label>
+        <input type="checkbox" id="Australian"><br><br>
+    </div>
+    <br><br><br><br>
+    <div id="nation">
+        <label for="India">India</label>
+        <input type="radio" name="nation" id="India"><br><br>
+
+        <label for="America">America</label>
+        <input type="radio" name="nation" id="America"><br><br>
+
+        <label for="Australia">Australia</label>
+        <input type="radio" name="nation" id="Australia"><br><br>
+    </div>
+    
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>
