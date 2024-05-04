@@ -25,6 +25,7 @@ Lecture 13: Ajax with Fetch API.
 Lecture 14: setTimeout method, setInterval, Jquery UI widgets (accordion, autocomplete)
 Lecture 15: Body Parser, passing value to Query String. 
 Lecture 16: Calendar and button Jquery UI
+Lecture 17: fieldset, chexkboxradio,  tooltip, spinner & assignment5
 ------------------------------------------------------------------------------------------
 
 Default port as per socity is 3000 

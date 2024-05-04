@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 55 </title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui-1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.13.3/jquery-ui.css">
+    <script>
+        $(()=>{
+            $('#text1').tooltip();
+            $('#text2').tooltip({
+                show:{effect: "blind", duration: 200}
+            });
+            $('#text3').tooltip({
+                show:{effect: "drop", direction:"down"}
+            });
+            
+            $('#text4').spinner({
+                min:18,
+                max:35,
+                step: 5
+            });
+            $('#text5').spinner();
+        });
+    </script>
+</head>
+<body>
+    <h1>Example 55 </h1>
+    <label>Name</label>
+    <input type="text" title="this will be the title for you" id="text1"><br><br>
+
+    <label>city</label>
+    <input type="text" title="this will be the city" id="text2"><br><br>
+
+    <label>state</label>
+    <input type="text" title="this will be the state" id="text3"><br><br>
+
+    <label>age</label>
+    <input type="text" title="this will be the age" id="text4"><br><br>
+
+    <label>year</label>
+    <input type="text" title="this will be the age" id="text5"><br><br>
+
+    
+
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 43</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui-1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.13.3/jquery-ui.css">
+    <script>
+        $(()=>{
+            fetch('/departments').then((response)=>{
+                return response.json();
+            }).then((response)=>{
+                let html = '';
+                response.forEach(element => {
+                    console.log(element);
+                    html = html+`<h2 onclick="showDepartmentData(this)" data-id="${element[0]}" data-status="false">${element[1]}</h2>
+                    <div class="accordian-div-item">
+                        <table class="table"><thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyOf${element[0]}"><tbody>
+                        </table></div>`;
+                });
+                $('#appendAccordianHere').html(html);
+                $('#appendAccordianHere').accordion();
+                console.log(response);
+                $('#appendAccordianHere >h2:first').trigger('click');
+            });
+        });
+
+        function showDepartmentData(that){
+            var callingStatus = $(that).data('status');
+            console.log(callingStatus);
+            console.log(callingStatus === false);
+            var departmentId = $(that).data('id');
+            if( callingStatus === false){
+                console.log('call ajax');
+                fetch('/employeeBydepartment?id='+departmentId).then((response)=>{
+                    return response.json();
+                }).then((response)=>{
+                    if(response.length>0){
+                        let html = '';
+                        response.forEach(element => {
+                            console.log(element);
+                            html = html+`<tr><td>${element[0]}</td><td>${element[1]}</td></tr>`;
+                        });
+                        $('#tbodyOf'+departmentId).html(html);
+                    }else{
+                        $('#tbodyOf'+departmentId).html("<tr><td colspan='2'>No data found</td></tr>");
+                    }
+                    console.log(response);
+                });
+
+                $(that).data('status', "true");
+                $('.accordian-div-item').css('height', "auto");
+            }else{
+                console.log("not");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Assignment 5</h1>
+    <span>Assignment :Create an accordion list of departments where clicking a department reveals the related employee list. Display the first department by default, load data for subsequent departments via AJAX on first click, and avoid redundant AJAX requests.</span>
+    <div id="appendAccordianHere"></div>
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+        .table{
+            width: 25rem;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .table td,th{
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 12pt;
+        }
+        .accordian-div-item{
+            height: auto;
+        }
+    </style>
+</body>
+</html>

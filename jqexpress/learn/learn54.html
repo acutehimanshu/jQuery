@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 54</title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui-1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.13.3/jquery-ui.css">
+    <script>
+        $(()=>{
+        // $('#per').controlgroup();
+        $('#per').controlgroup({
+            "direction":'vertical'
+        });
+    })
+    </script>
+</head>
+<body>
+    <h1>Example 54</h1>
+    <fieldset>
+        <legend>Personal information</legend>
+        <div id="per"> 
+            <label for="name">Name</label>
+            <input type="text" id="name">
+            <br>
+            <br>
+            <label for="India">India</label>
+            <input type="radio" id="India" name="nationality">
+            <label for="American">American</label>
+            <input type="radio" id="American" name="nationality">
+            <label for="German">German</label>
+            <input type="radio" id="German" name="nationality">
+            <br>
+            <label for="bookReadinbg">Book readinbg</label>
+            <input type="radio" id="bookReadinbg">
+            <label for="Swiming">Swiming</label>
+            <input type="radio" id="Swiming">
+            <label for="walking">walking</label>
+            <input type="radio" id="walking">
+        </div>
+    </fieldset>
+
+    
+
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>
