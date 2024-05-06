@@ -26,6 +26,7 @@ Lecture 14: setTimeout method, setInterval, Jquery UI widgets (accordion, autoco
 Lecture 15: Body Parser, passing value to Query String. 
 Lecture 16: Calendar and button Jquery UI
 Lecture 17: fieldset, chexkboxradio,  tooltip, spinner & assignment5
+Lecture 18: Accordion assignment Code
 ------------------------------------------------------------------------------------------
 
 Default port as per socity is 3000 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 56 </title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui-1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.13.3/jquery-ui.css">
+    <script>
+        const getEmployeeByDepartment = (departmentId)=>{
+            var promise = new Promise((resolve)=>{
+                fetch(`getEmpoloyeesByDepartment?departmentId=${departmentId}`).then((response)=>{
+                    return response.json();
+                }).then((response)=>{
+                    resolve(response)
+                });
+            });
+            return promise;
+        }
+        const getDepartments = ()=>{
+            var promise = new Promise((resolve)=>{
+                fetch('getDepartments').then((response)=>{
+                    return response.json();
+                }).then((response)=>{
+                    resolve(response)
+                });
+            });
+            return promise;
+        }
+        var datamodel = {
+            departments : []
+        }
+        $(()=>{
+            getDepartments().then((departments)=>{
+                datamodel.departments = departments;
+                var k = $('#departments');
+                datamodel.departments.forEach((department)=>{
+                    k.append(`<h3 id="H${department.id}">${department.name}</h3>`);
+                    k.append(`<div id="D${department.id}"></div>`);
+                });
+
+                $('#departments').accordion();
+
+                var departmentId = datamodel.departments[0].id;
+                var k = $(`div[id=D${departmentId}]`);
+                getEmployeeByDepartment(departmentId).then((employees)=>{
+                    datamodel.departments[0].employees = employees;
+                    k.append("<ul>");
+                    employees.forEach((employee)=>{
+                        k.append(`<li>${employee.firstName} ${employee.lastName}</li>`);
+                    });
+                    k.append("</ul>");
+                    $('#departments').accordion('refresh');
+                });
+
+                
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Example 56 </h1>
+    <h3>Departments</h3>
+    <div id="departments">
+
+    </div>
+    
+
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>

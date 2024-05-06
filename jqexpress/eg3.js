@@ -4,7 +4,14 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 const urlEncodedBodyparser = bodyParser.urlencoded({extended:false});
-
+class Department{
+    constructor(id, name){
+        this.id = id;
+        this.name= name;
+    }
+    getId(){return this.id; }
+    getName(){return this.name; }
+}
 class Employee {
     constructor(id, fn, ln){
         this.id = id; 
@@ -42,6 +49,60 @@ app.get("/getEmployees", async function(request, response){
         response.send(emps);
     } catch (error) {
         console.log(error.message);
+    }
+});
+
+app.get("/getDepartments", async function(request, response){
+    var connection = null;
+    try {
+        connection = await oracle.getConnection({
+            'user':'hr',
+            'password':'hr',
+            'connectionString':'//localhost:1521/xepdb1'
+        });
+        let resultset = await connection.execute('Select department_id, department_name FROM departments ORDER BY department_name');
+        var i = 0;
+        var departments=[];
+        var dep;
+        while(i<resultset.rows.length){
+            dep = new Department(resultset.rows[i][0],resultset.rows[i][1]);
+            departments.push(dep);
+            i++;
+        }
+        await connection.close();
+        response.send(departments);
+    } catch (error) {
+        console.log(error.message);
+    }
+});
+
+app.get("/getEmpoloyeesByDepartment", urlEncodedBodyparser,  async function(request, response){
+    let connection = null;
+    try{
+        connection = await oracle.getConnection({
+            user:"hr",
+            password:"hr",
+            connectionString:"//localhost:1521/xepdb1"
+        });
+        var departmentId = parseInt(request.query.departmentId);
+        // let resultSet = await connection.execute("select first_name from employees where first_name like 'A%' order by first_name");
+        let resultSet = await connection.execute(`select employee_id,first_name,last_name from employees where department_id = '${departmentId}' order by first_name`);
+        var employees = [];
+        resultSet.rows.forEach((item)=>{
+            employees.push(new Employee(item[0], item[1] ,item[2]));
+        });
+        response.send(employees);
+    }catch(err){
+        console.log(err.message)
+    }
+    finally{
+        if (connection) {
+            try {
+                await connection.close();
+            } catch (closeErr) {
+                console.error('Error closing the connection:', closeErr);
+            }
+        }
     }
 });
 
