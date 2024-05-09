@@ -24,3 +24,5 @@ Lecture 11: Oracle Db connection and fetch employee data
 Lecture 12: Ajax Code with Core JS, get Method and Ajax methods. 
 
 Lecture 13: Ajax with Fetch API. 
+
+Lecture 14: setTimeout method, setInterval, Jquery UI widgets (accordion, autocomplete)
