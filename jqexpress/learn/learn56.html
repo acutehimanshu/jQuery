@@ -31,16 +31,46 @@
         var datamodel = {
             departments : []
         }
+        const onDepartmentActivated = (ev, ui)=>{
+            console.log(ui.newHeader.prop("id"));
+            var departmentId = parseInt(ui.newHeader.prop("id").substring(1));
+            console.log(departmentId);
+
+            let e = 0;
+            while(e<datamodel.departments.length){
+                if(datamodel.departments[e].id == departmentId){
+                    if(datamodel.departments[e].employees){
+                        return;
+                    }
+                    break;
+                }
+                e++;
+            }
+
+            var k = ui.newPanel;
+            getEmployeeByDepartment(departmentId).then((employees)=>{
+                datamodel.departments[e].employees = employees;
+                k.append("<ul>");
+                employees.forEach((employee)=>{
+                    k.append(`<li>${employee.firstName} ${employee.lastName}</li>`);
+                });
+                k.append("</ul>");
+                $('#departments').accordion('refresh');
+            });
+        }
         $(()=>{
             getDepartments().then((departments)=>{
                 datamodel.departments = departments;
                 var k = $('#departments');
                 datamodel.departments.forEach((department)=>{
-                    k.append(`<h3 id="H${department.id}">${department.name}</h3>`);
+                    k.append(`<h3 id="H${department.id}">${department.name} (${department.id})</h3>`);
                     k.append(`<div id="D${department.id}"></div>`);
                 });
 
-                $('#departments').accordion();
+                $('#departments').accordion({
+                    activate:onDepartmentActivated,
+                    heightStyle:"content"
+                });
 
                 var departmentId = datamodel.departments[0].id;
                 var k = $(`div[id=D${departmentId}]`);
