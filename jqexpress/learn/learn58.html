@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 58 </title>
+    <script>
+        /*
+        function doSomething(){
+            let num  = 34;
+            // let num  = 3;
+            if(num%2 == 1){
+                alert(" we can not process with odd number in this function"); 
+                return;
+            }
+            alert("Greate");
+            alert("We can process");
+        }
+        */
+       /*
+        function doSomething(){
+            // let num  = 34;
+            let num  = 3;
+            if(num%2 == 1){
+                throw Error("Can not process Odd number."); // process termintaes here
+            }
+            alert("Greate");
+            alert("We can process");
+        }*/
+
+        /*
+        function doSomething(){
+            let num  = 3;
+            try{
+                if(num%2 == 1){
+                    throw Error("Can not process Odd number."); // 
+                    // becase of throw control goes to catch directly with Error as e. 
+                }
+                alert("Greate");
+                alert("We can process");
+            }catch(e){
+                alert(e.message);
+            }
+        }
+        */
+
+        /* 
+
+        function doSomething(){
+            let num  = 3;
+            try{
+                if(num%2 == 1){
+                    throw 3; 
+                }
+                alert("Greate");
+                alert("We can process");
+            }catch(e){
+                alert(e + " Can not process. ");
+            }
+        }
+
+        */
+
+        /*
+        function doSomething(){
+            let num  = 3;
+            try{
+                if(num < 50){
+                    throw Error("Number should more then 50"); 
+                }
+                if(num%2 == 1){
+                    throw 3; 
+                }
+                alert("Greate");
+                alert("We can process");
+            }catch(e){
+                alert(e + " Can not process. ");
+            }catch(e){ // Error here/ only 1 catch can be written here
+                alert(e + " Can not process. ");
+            }
+        }
+        */
+
+        function doSomething(){
+            let num  = 3;
+            try{
+                if(num > 50){
+                    throw Error("Number can not more then 50"); 
+                }
+                if(num%2 == 1){
+                    throw Error(num+ " Number should be even "); 
+                }
+                alert("Greate");
+                alert("We can process");
+            }catch(e){
+                alert(e.message);
+            }finally{
+                alert("porcess complete");
+            }
+        }
+        /*
+        function doSomethingAgain(){
+            var while; // wrong
+            while = 20; // wrong
+            alert(while); // wrong // can not use keywords
+        }
+        */
+        function doSomethingAgain(){
+            var k; 
+            k = 'while'; 
+            alert(k);  // working // its string.
+        }
+
+        function doSomethingAgain3(){
+            var k = {
+                while : 10, // while is key not variable it can be anything
+                "var": true,
+                "catch": ()=>{
+                    alert("Very cool");
+                }
+            }
+            alert(k['while']);
+            alert(k.while);
+            alert(k.var);
+            k.catch();
+            k['catch']();
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>Example 58 </h1>
+    <button type="button" onclick="doSomething()">Click me!</button>
+    <button type="button" onclick="doSomethingAgain3()">Click me!</button>
+
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>

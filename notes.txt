@@ -29,6 +29,7 @@ Lecture 17: fieldset, chexkboxradio,  tooltip, spinner & assignment5
 Lecture 18: Accordion assignment Code
 Lecture 19: Assigment of Listing Codeing
 Lecture 20: Promise function Discussion and learn56 Changes
+lecture 21: try, catch, finally, throw, and how to use keywords and Assignment
 ------------------------------------------------------------------------------------------
 
 Default port as per socity is 3000 

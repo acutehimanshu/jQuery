@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 56 </title>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
+    <script src="jquery-ui-1.13.3/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.13.3/jquery-ui.css">
+    <script>
+        const loader = "<img src='images/loader.gif' width='25%' height = '25%' />";
+        const getEmployeeByDepartment = (departmentId)=>{
+            var promise = new Promise((resolve, reject)=>{
+                fetch(`getEmpoloyeesByDepartment?departmentId=${departmentId}`).then((response)=>{
+                    if(!response.ok)
+                    {
+                        throw Error();
+                    }
+                    return response.json();
+                }).then((response)=>{
+                    resolve(response);
+                }).catch((e)=>{
+                    reject();
+                });
+            });
+            return promise;
+        }
+        const getDepartments = ()=>{
+            var promise = new Promise((resolve)=>{
+                fetch('getDepartments').then((response)=>{
+                    return response.json();
+                }).then((response)=>{
+                    resolve(response)
+                });
+            });
+            return promise;
+        }
+        var datamodel = {
+            departments : []
+        }
+        const onDepartmentActivated = (ev, ui)=>{
+            console.log(ui.newHeader.prop("id"));
+            var departmentId = parseInt(ui.newHeader.prop("id").substring(1));
+            console.log(departmentId);
+
+            let e = 0;
+            while(e<datamodel.departments.length){
+                if(datamodel.departments[e].id == departmentId){
+                    if(datamodel.departments[e].employees){
+                        return;
+                    }
+                    break;
+                }
+                e++;
+            }
+
+            var k = ui.newPanel;
+            k.empty();
+            k.append(loader);
+            getEmployeeByDepartment(departmentId).then((employees)=>{
+                datamodel.departments[e].employees = employees;
+                k.empty();
+                k.append("<ul>");
+                employees.forEach((employee)=>{
+                    k.append(`<li>${employee.firstName} ${employee.lastName}</li>`);
+                });
+                k.append("</ul>");
+                $('#departments').accordion('refresh');
+            }, ()=>{
+                k.empty();
+                var msg = $('<h3>No Employees</h3>');
+                k.append(msg);
+            });
+        }
+        $(()=>{
+            getDepartments().then((departments)=>{
+                datamodel.departments = departments;
+                var k = $('#departments');
+                datamodel.departments.forEach((department)=>{
+                    k.append(`<h3 id="H${department.id}">${department.name} (${department.id})</h3>`);
+                    k.append(`<div id="D${department.id}"></div>`);
+                });
+
+                $('#departments').accordion({
+                    activate:onDepartmentActivated,
+                    heightStyle:"content"
+                });
+
+                var departmentId = datamodel.departments[0].id;
+                var k = $(`div[id=D${departmentId}]`);
+                k.empty();
+                k.append(loader);
+                getEmployeeByDepartment(departmentId).then((employees)=>{
+                    datamodel.departments[0].employees = employees;
+                    k.empty();
+                    k.append("<ul>");
+                    employees.forEach((employee)=>{
+                        k.append(`<li>${employee.firstName} ${employee.lastName}</li>`);
+                    });
+                    k.append("</ul>");
+                    $('#departments').accordion('refresh');
+                }, ()=>{
+                    k.empty();
+                    var msg = $('<h3>No Employees</h3>');
+                    k.append(msg);
+                });
+
+                
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Example 56 </h1>
+    <h3>Departments</h3>
+    <div id="departments">
+
+    </div>
+    
+
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>
