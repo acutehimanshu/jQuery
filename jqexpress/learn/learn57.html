@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 57 </title>
+    <script>
+        function fundFactorial(num){
+            return new Promise((resolve, reject)=>{
+                setTimeout(() => {
+                    if(num%2==0){
+                        let e,f;
+                        e = f = 1;
+                        
+                        while(e<=num){
+                            f=f*e;
+                            e++;
+                        }
+                        resolve(f);
+                    }else{
+                        reject("we can not solve this time");
+                    }
+                }, 2500);
+            });
+        }
+        function findSolution(){
+            let element = document.getElementById('num');
+            let val = element.value;
+            fundFactorial(val).then((factorial)=>{
+                alert(`Factorial of ${val} is ${factorial}`);
+            }, (response)=>{
+                alert(response);
+            });;
+        }
+    </script>
+</head>
+<body>
+    <h1>Example 57 </h1>
+    <p>Enter a number <input type="text" id="num"> </p>
+    <button type="button" onclick="findSolution()">Find Factorial</button>
+
+
+    <!-- ------------------------------------------------------------ -->
+    <a href="/" class="homeLink">Home</a>
+    <style>
+        .homeLink{
+            position: absolute;
+            top: 5px; 
+            right: 10px;
+        }
+    </style>
+</body>
+</html>

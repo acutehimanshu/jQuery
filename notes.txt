@@ -28,6 +28,7 @@ Lecture 16: Calendar and button Jquery UI
 Lecture 17: fieldset, chexkboxradio,  tooltip, spinner & assignment5
 Lecture 18: Accordion assignment Code
 Lecture 19: Assigment of Listing Codeing
+Lecture 20: Promise function Discussion and learn56 Changes
 ------------------------------------------------------------------------------------------
 
 Default port as per socity is 3000 

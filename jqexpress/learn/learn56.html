@@ -8,9 +8,11 @@
     <script src="jquery-ui-1.13.3/jquery-ui.js"></script>
     <link rel="stylesheet" href="jquery-ui-1.13.3/jquery-ui.css">
     <script>
+        const loader = "<img src='images/loader.gif' width='25%' height = '25%' />";
         const getEmployeeByDepartment = (departmentId)=>{
             var promise = new Promise((resolve)=>{
                 fetch(`getEmpoloyeesByDepartment?departmentId=${departmentId}`).then((response)=>{
+                    alert(response.ok)
                     return response.json();
                 }).then((response)=>{
                     resolve(response)
@@ -48,8 +50,10 @@
             }
 
             var k = ui.newPanel;
+            k.append(loader);
             getEmployeeByDepartment(departmentId).then((employees)=>{
                 datamodel.departments[e].employees = employees;
+                k.empty();
                 k.append("<ul>");
                 employees.forEach((employee)=>{
                     k.append(`<li>${employee.firstName} ${employee.lastName}</li>`);
@@ -74,8 +78,10 @@
 
                 var departmentId = datamodel.departments[0].id;
                 var k = $(`div[id=D${departmentId}]`);
+                k.append(loader);
                 getEmployeeByDepartment(departmentId).then((employees)=>{
                     datamodel.departments[0].employees = employees;
+                    k.empty();
                     k.append("<ul>");
                     employees.forEach((employee)=>{
                         k.append(`<li>${employee.firstName} ${employee.lastName}</li>`);

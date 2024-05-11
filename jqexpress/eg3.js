@@ -4,6 +4,13 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
 const urlEncodedBodyparser = bodyParser.urlencoded({extended:false});
+
+const timepass = (ms)=>{
+    return new Promise((resolve)=>{
+        setTimeout(resolve, ms);
+    });
+}
+
 class Department{
     constructor(id, name){
         this.id = id;
@@ -77,6 +84,7 @@ app.get("/getDepartments", async function(request, response){
 });
 
 app.get("/getEmpoloyeesByDepartment", urlEncodedBodyparser,  async function(request, response){
+    await timepass(2500);  // its await so once this function end then only it will execute next line. 
     let connection = null;
     try{
         connection = await oracle.getConnection({
@@ -87,6 +95,11 @@ app.get("/getEmpoloyeesByDepartment", urlEncodedBodyparser,  async function(requ
         var departmentId = parseInt(request.query.departmentId);
         // let resultSet = await connection.execute("select first_name from employees where first_name like 'A%' order by first_name");
         let resultSet = await connection.execute(`select employee_id,first_name,last_name from employees where department_id = '${departmentId}' order by first_name`);
+        if(resultSet.rows.length == 0){
+            await connection.close();
+            response.sendStatus(404);
+            return;
+        }
         var employees = [];
         resultSet.rows.forEach((item)=>{
             employees.push(new Employee(item[0], item[1] ,item[2]));
